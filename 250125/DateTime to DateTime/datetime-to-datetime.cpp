@@ -36,5 +36,9 @@ int main(){
 
     int diff = ((a * 24 * 60) + (b * 60) + c) - ((11 * 24 * 60) + (11 * 60) + 11);
 
-    cout << diff << '\n';
+    if(diff >= 0)
+        cout << diff << '\n';
+    else{
+        cout << -1 << '\n';
+    }
 }
