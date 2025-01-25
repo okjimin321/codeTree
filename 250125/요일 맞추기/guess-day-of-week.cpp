@@ -21,7 +21,9 @@ int main() {
         totalB += daysOfMonth[i];
     }
 
-    cout << dayOfWeak[(totalB - totalA + 7) % 7];
+    
+    
+        cout << dayOfWeak[(totalB - totalA + 700) % 7];
 
     return 0;
 }
