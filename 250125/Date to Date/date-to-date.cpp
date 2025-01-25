@@ -13,14 +13,14 @@ int main() {
     int totalDaysOfa = d1;
     int totalDaysOfb = d2;
 
-    for(int i = 0; i < m1; i++){
+    for(int i = 0; i < m1 - 1; i++){
         totalDaysOfa += daysOfMonth[i];
     }
 
-    for(int i = 0; i < m2; i++){
+    for(int i = 0; i < m2 - 1; i++){
         totalDaysOfb += daysOfMonth[i];
     }
 
-    cout << -totalDaysOfa + totalDaysOfb;
+    cout << -totalDaysOfa + totalDaysOfb + 1;
     return 0;
 }
