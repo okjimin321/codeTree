@@ -20,7 +20,7 @@ int main() {
             totalMin = -1;
         }
         else{
-            totalMin = (a - 11) * 24 * 60 + (b - 11) * 60 + c;
+            totalMin = (a - 11) * 24 * 60 + (b - 11) * 60 + c - 11;
         }
     }
     else{
