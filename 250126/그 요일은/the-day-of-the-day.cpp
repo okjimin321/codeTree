@@ -23,12 +23,13 @@ int main() {
     }
 
     int diff = totalB - totalA;
-    for(int i = 0; i < 7; i++){
+    int  i = 0;
+    for(; i < 7; i++){
         if(dayOfWeek[i] == A){
             break;
         }
-        diff++;
     }
+    diff = diff + 6 - i + 1;
 
     cout << diff / 7 << '\n';
 
