@@ -25,10 +25,10 @@ int main() {
 
     
 
-    int* checked = new int[200000];
-    int* lastest = new int[200000];
+    long long* checked = new long long[200000];
+    char* lastest = new char[200000];
     //initialize to distinguish white and black
-    for(int i = 0; i < (1000 * 100 * 2); i++){
+    for(int i = 0; i < (200000); i++){
         checked[i] = 1;
         lastest[i] = 0;
     }
@@ -43,7 +43,7 @@ int main() {
         if(dir[i] == 'R'){
             for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 3;
-                lastest[j + 100000] = 69; 
+                lastest[j + 100000] = 'B'; 
             }
         }
 
@@ -51,7 +51,7 @@ int main() {
         else if(dir[i] == 'L'){
             for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 2;
-                lastest[j + 100000] = 74; 
+                lastest[j + 100000] = 'W'; 
             }
         }
 
@@ -63,15 +63,15 @@ int main() {
     g = b = w = 0;
     
     for(int i = 0; i < 200000; i++){
-        if(checked[i] % 36 == 0){
+        if((checked[i] % 36) == 0 ){
             //cout << "g " << i - 100000<< '\n';
             g++;
         }
-        else if(lastest[i] == 74){
+        else if(lastest[i] == 'W'){
            //cout << "w " << i - 100000<< '\n';
             w++;
         }
-        else if(lastest[i] == 69){
+        else if(lastest[i] == 'B'){
             //cout << "b " << i - 100000<< '\n';
             b++;
         }
