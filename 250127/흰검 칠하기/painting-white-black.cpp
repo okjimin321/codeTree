@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include<vector>
 using namespace std;
 
 int n;
@@ -25,12 +25,18 @@ int main() {
 
     
 
-    long long* checked = new long long[200000];
+    double* checked = new double[200000];
     char* lastest = new char[200000];
+    vector<vector<char>> arr1;
+    vector<vector<char>> arr2;
+    vector<vector<char>> arr3;
     //initialize to distinguish white and black
     for(int i = 0; i < (200000); i++){
         checked[i] = 1;
         lastest[i] = 0;
+        arr1.push_back(vector<char>());
+        arr2.push_back(vector<char>());
+        arr3.push_back(vector<char>());
     }
 
 
@@ -44,6 +50,8 @@ int main() {
             for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 3;
                 lastest[j + 100000] = 'B'; 
+                arr1[j + 100000].push_back('B');
+                arr3[j + 100000].push_back('B');
             }
         }
 
@@ -52,6 +60,8 @@ int main() {
             for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 2;
                 lastest[j + 100000] = 'W'; 
+                arr2[j + 100000].push_back('W');
+                arr3[j + 100000].push_back('W');
             }
         }
 
@@ -62,20 +72,23 @@ int main() {
     int g , b , w;
     g = b = w = 0;
     
-    for(int i = 0; i < 200000; i++){
-        if((checked[i] % 36) == 0 ){
-            //cout << "g " << i - 100000<< '\n';
-            g++;
-        }
-        else if(lastest[i] == 'W'){
-           //cout << "w " << i - 100000<< '\n';
-            w++;
-        }
-        else if(lastest[i] == 'B'){
-            //cout << "b " << i - 100000<< '\n';
-            b++;
-        }
+   for (int i = 0; i < 200000; i++) {
+    int bCount = arr1[i].size();
+    int cCount = arr2[i].size();
+
+    int size = arr3[i].size();
+
+    if (bCount >= 2 && cCount >= 2) {
+        g++;
+    } 
+    else if (!arr3[i].empty() && arr3[i][size - 1] == 'W') {
+        w++;
+    } 
+    else if (!arr3[i].empty() && arr3[i][size - 1] == 'B') {
+        b++;
     }
+}
+
 
     cout << w << " " << b << " " << g << endl;
     return 0;
