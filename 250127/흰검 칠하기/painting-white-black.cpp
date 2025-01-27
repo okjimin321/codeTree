@@ -67,15 +67,15 @@ int main() {
     
     for(int i = 0; i < 200000; i++){
         if(checked[i] % 36 == 0){
-            cout << "g " << i - 100000<< '\n';
+            //cout << "g " << i - 100000<< '\n';
             g++;
         }
         else if(lastest[i] == 69){
-            cout << "b " << i - 100000<< '\n';
+           //cout << "b " << i - 100000<< '\n';
             b++;
         }
         else if(lastest[i] == 74){
-            cout << "w " << i - 100000<< '\n';
+            //cout << "w " << i - 100000<< '\n';
             w++;
         }
     }
