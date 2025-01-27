@@ -16,19 +16,10 @@ int main() {
 
        
         if(dir[i] == 'L'){
-            if(x[i] != 1)
-                loc[i + 1] = loc[i] - x[i] + 1;
-            else if(x[i] == 1){
-                loc[i + 1] = loc[i];
-            }
-            
+            loc[i + 1] = loc[i] - x[i] + 1; 
         }
         else if(dir[i] == 'R'){
-            if(x[i] != 1)
-                loc[i + 1] = loc[i] + x[i] - 1;
-            else if(x[i] == 1){
-                loc[i + 1] = loc[i];
-            }
+            loc[i + 1] = loc[i] + x[i] - 1;
         }
     }
 
@@ -49,8 +40,6 @@ int main() {
         int end = max(loc[i], loc[i + 1]);
         
         //black
-       
-
         if(dir[i] == 'R'){
             for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 3;
