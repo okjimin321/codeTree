@@ -16,17 +16,23 @@ int main() {
 
        
         if(dir[i] == 'L'){
-            loc[i + 1] = loc[i] - x[i];
+            if(x[i] != 1)
+                loc[i + 1] = loc[i] - x[i] + 1;
+            else if(x[i] == 1){
+                loc[i + 1] = loc[i];
+            }
+            
         }
         else if(dir[i] == 'R'){
-            loc[i + 1] = loc[i] + x[i];
+            if(x[i] != 1)
+                loc[i + 1] = loc[i] + x[i] - 1;
+            else if(x[i] == 1){
+                loc[i + 1] = loc[i];
+            }
         }
     }
 
-    // for(int i = 0; i < 10; i++){
-    //     cout << loc[i] << " ";
-    // }
-    // cout << endl;
+    
 
     int* checked = new int[200000];
     int* lastest = new int[200000];
@@ -43,8 +49,10 @@ int main() {
         int end = max(loc[i], loc[i + 1]);
         
         //black
+       
+
         if(dir[i] == 'R'){
-            for(int j = start; j < end; j++){
+            for(int j = start; j <= end; j++){
                 checked[j + 100000] = checked[j + 100000] * 3;
                 lastest[j + 100000] = 69; 
             }
@@ -52,9 +60,9 @@ int main() {
 
         //white
         else if(dir[i] == 'L'){
-            for(int j = start; j < end; j++){
-                checked[j + 1000 * 100] = checked[j + 1000 * 100] * 2;
-                lastest[j + 1000 * 100] = 74; 
+            for(int j = start; j <= end; j++){
+                checked[j + 100000] = checked[j + 100000] * 2;
+                lastest[j + 100000] = 74; 
             }
         }
 
@@ -70,13 +78,13 @@ int main() {
             //cout << "g " << i - 100000<< '\n';
             g++;
         }
-        else if(lastest[i] == 69){
-           //cout << "b " << i - 100000<< '\n';
-            b++;
-        }
         else if(lastest[i] == 74){
-            //cout << "w " << i - 100000<< '\n';
+           //cout << "w " << i - 100000<< '\n';
             w++;
+        }
+        else if(lastest[i] == 69){
+            //cout << "b " << i - 100000<< '\n';
+            b++;
         }
     }
 
