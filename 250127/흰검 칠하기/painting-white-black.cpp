@@ -35,7 +35,7 @@ int main() {
 
 
     //checking section
-    for(int i = 0; i < 1000; i++){
+    for(int i = 0; i < n; i++){
         int start = min(loc[i], loc[i + 1]);
         int end = max(loc[i], loc[i + 1]);
         
