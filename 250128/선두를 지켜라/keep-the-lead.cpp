@@ -46,7 +46,7 @@ int main() {
 
     
     int c = 0;
-    for(int i = 2; i < result.size(); i++){
+    for(int i = 1; i < result.size(); i++){
     
         if(result[i - 1] != result[i] ){
             //cout << i << '\n';
@@ -54,7 +54,7 @@ int main() {
         }
     }
 
-    cout << c << '\n';
+    cout << c - 1<< '\n';
 
     return 0;
 }
