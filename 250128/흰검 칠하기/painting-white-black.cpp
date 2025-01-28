@@ -65,7 +65,6 @@ int main() {
     }
 
     int preLocation = OFFSET;
-    //vertical[OFFSET].setLocation(OFFSET);
 
     for (int i = 0; i < n; i++) {
         int x;      
@@ -76,21 +75,31 @@ int main() {
             if (d == 'R') {
                 vertical[preLocation].setLocation(preLocation);
                 vertical[preLocation].addColor('B');
-                preLocation++;
+                //preLocation++;
+                
+                if(x){
+                    preLocation++;
+                }
             }
             else if (d == 'L') {
                 vertical[preLocation].setLocation(preLocation);
                 vertical[preLocation].addColor('W');
-                preLocation--;
+                //preLocation--;
+
+                if(x){
+                    preLocation--;
+                }
             }
+
+            
         }
         
-        if (d == 'R') {
-            preLocation--;
-        }
-        else {
-            preLocation++;
-        }
+        // if (d == 'R') {
+        //     preLocation--;
+        // }
+        // else {
+        //     preLocation++;
+        // }
 
     }
 
