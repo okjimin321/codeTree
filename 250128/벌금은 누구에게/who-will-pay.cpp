@@ -7,7 +7,7 @@ int  N, M, K;
 int main() {
     cin >> N >> M >> K;
 
-    int* student = new int[N];
+    int* student = new int[N + 1];
     int ans = -1;
     for (int i = 0; i < M; i++) {
         int x;
