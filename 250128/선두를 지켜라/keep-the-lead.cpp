@@ -1,59 +1,64 @@
 #include <iostream>
-#define MAX 1000000
+
+#define MAX_T 1000000
+
 using namespace std;
 
-int N, M;
-int v2[1000], t2[1000];
+int n, m;
+int pos_a[MAX_T + 1], pos_b[MAX_T + 1];
 
 int main() {
-    cin >> N >> M;
-
-    int path1[MAX + 1]{};
-    int cur = 0;
-    for (int i = 0; i < N; i++){
+    // 입력
+    cin >> n >> m;
+    
+    // A가 매 초마다 서있는 위치를 기록
+    int time_a = 1;
+    for(int i = 0; i < n; i++) {
         int v, t;
-         cin >> v >> t;
-
-        while(t--){
-            path1[cur + 1] = path1[cur] + v;
-            cur++;
+        cin >> v >> t;
+        
+        while(t--) {
+            pos_a[time_a] = pos_a[time_a - 1] + v;
+            time_a++;
         }
     }
     
-    int path2[MAX + 1]{};
-    int cur2 = 0;
-    for (int i = 0; i < N; i++){
+    // B가 매 초마다 서있는 위치를 기록
+    int time_b = 1;
+    for(int i = 0; i < m; i++) {
         int v, t;
-         cin >> v >> t;
-
-        while(t--){
-            path2[cur2 + 1] = path2[cur2] + v;
-            cur2++;
+        cin >> v >> t;
+        
+        while(t--) {
+            pos_b[time_b] = pos_b[time_b - 1] + v;
+            time_b++;
         }
     }
-
-    int leader = 0;     int ans = 0;
-    for(int i = 1; i < cur; i++){
-        if(path1[i] > path2[i]){
-
-            if(leader == 2){
+    
+    // A와 B 중 더 앞서 있는 경우를 확인합니다.
+    // A가 리더면 1, B가 리더면 2로 관리합니다.
+    int leader = 0, ans = 0;
+    for(int i = 1; i < time_a; i++) {
+        if(pos_a[i] > pos_b[i]) {
+            // 기존 리더가 B였다면
+            // 답을 갱신합니다.
+            if(leader == 2)
                 ans++;
-            }
-
-            leader = 1;
+            
+            // 리더를 A로 변경합니다.
+            leader = 1; 
         }
-        else if(path1[i] < path2[i]){
-
-            if(leader == 1){
+        else if(pos_a[i] < pos_b[i]) {
+            // 기존 리더가 A였다면
+            // 답을 갱신합니다.
+            if(leader == 1)
                 ans++;
-            }
-
-            leader = 2;
+            
+            // 리더를 B로 변경합니다.
+            leader = 2; 
         }
     }
-
-    cout << ans << '\n';
-
-
+    
+    cout << ans;
     return 0;
 }
