@@ -61,12 +61,9 @@ int main() {
 
     //initialize section
     Coordinate* vertical = new Coordinate[2 *  OFFSET];
-    // for (int i = 0; i < OFFSET * 2; i++) {
-    //     vertical.push_back(Coordinate());
-    // }
+ 
 
     int preLocation = OFFSET;
-
     for (int i = 0; i < n; i++) {
         int x;      
         char d;
@@ -76,31 +73,31 @@ int main() {
             if (d == 'R') {
                 vertical[preLocation].setLocation(preLocation);
                 vertical[preLocation].addColor('B');
-                //preLocation++;
+                preLocation++;
                 
-                if(x){
-                    preLocation++;
-                }
+                // if(x){
+                //     preLocation++;
+                // }
             }
             else if (d == 'L') {
                 vertical[preLocation].setLocation(preLocation);
                 vertical[preLocation].addColor('W');
-                //preLocation--;
+                preLocation--;
 
-                if(x){
-                    preLocation--;
-                }
+                // if(x){
+                //     preLocation--;
+                // }
             }
 
             
         }
         
-        // if (d == 'R') {
-        //     preLocation--;
-        // }
-        // else {
-        //     preLocation++;
-        // }
+        if (d == 'R') {
+            preLocation--;
+        }
+        else {
+            preLocation++;
+        }
 
     }
 
