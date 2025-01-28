@@ -15,11 +15,21 @@ int main() {
         student[x]++;
     }
 
-    for(int i = 1; i <= N; i++){
+
+    bool c = false;
+    int i = 1;
+    for(; i <= N; i++){
         if(student[i] >= K){
-            cout << i  << '\n';
+            c = true;
             break;
         }
+    }
+
+    if(c){
+        cout << i << '\n';
+    }
+    else{
+        cout << -1 << '\n';
     }
 
     // Write your code here!
