@@ -1,60 +1,59 @@
 #include <iostream>
-#include<vector>
+#define MAX 1000000
 using namespace std;
 
 int N, M;
-int v[1000], t[1000];
 int v2[1000], t2[1000];
 
 int main() {
     cin >> N >> M;
 
-    
-    vector<int> cur1; cur1.push_back(0);
+    int path1[MAX + 1]{};
+    int cur = 0;
     for (int i = 0; i < N; i++){
-        cin >> v[i] >> t[i];
+        int v, t;
+         cin >> v >> t;
 
-        for(int j = 0; j < t[i]; j++){
-            cur1.push_back(cur1[cur1.size() - 1] + v[i]);
-        }
-    }
-
-    vector<int> cur2; cur2.push_back(0);
-    for (int i = 0; i < M; i++) {
-        cin >> v2[i] >> t2[i];
-
-        for(int j = 0; j < t2[i]; j++){
-            cur2.push_back(cur2[cur2.size() - 1] + v2[i]);
+        while(t--){
+            path1[cur + 1] = path1[cur] + v;
+            cur++;
         }
     }
     
-    vector<int> result; result.push_back(0);
-    for(int i = 1; i < cur1.size(); i++){
-        //p1 wins
-        if(cur1[i] > cur2[i]){
-            result.push_back(1);
-        }
-        //p2 wins
-        else if(cur1[i] < cur2[i]){
-            result.push_back(2);
-        }
-        //draw
-        else{
-            result.push_back(result[result.size() - 1]);
+    int path2[MAX + 1]{};
+    int cur2 = 0;
+    for (int i = 0; i < N; i++){
+        int v, t;
+         cin >> v >> t;
+
+        while(t--){
+            path2[cur2 + 1] = path2[cur2] + v;
+            cur2++;
         }
     }
 
-    
-    int c = 0;
-    for(int i = 1; i < result.size(); i++){
-    
-        if(result[i - 1] != result[i] ){
-            //cout << i << '\n';
-            c++;
+    int leader = 0;     int ans = 0;
+    for(int i = 1; i < cur; i++){
+        if(path1[i] > path2[i]){
+
+            if(leader == 2){
+                ans++;
+            }
+
+            leader = 1;
+        }
+        else if(path1[i] < path2[i]){
+
+            if(leader == 1){
+                ans++;
+            }
+
+            leader = 2;
         }
     }
 
-    cout << c - 1<< '\n';
+    cout << ans << '\n';
+
 
     return 0;
 }
