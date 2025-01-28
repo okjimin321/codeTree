@@ -1,13 +1,13 @@
 #include <iostream>
-
 using namespace std;
 
-int N, M, K;
-int student[10000]{};
+int  N, M, K;
+
 
 int main() {
     cin >> N >> M >> K;
 
+    int* student = new int[N];
     int ans = -1;
     for (int i = 0; i < M; i++) {
         int x;
@@ -22,5 +22,6 @@ int main() {
 
     cout << ans << '\n';
 
+    delete[] student;
     return 0;
 }
