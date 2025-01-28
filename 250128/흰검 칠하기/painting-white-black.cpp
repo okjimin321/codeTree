@@ -14,11 +14,12 @@ char dir[N];
 struct Coordinate {
     int wNum, bNum;
     int location;
-    vector<char> color;
+    char color;
 
     Coordinate() {
         location = -1;
         wNum = bNum = 0;
+        color = ' ';
     }
 
     void setLocation(int loc) {
@@ -26,7 +27,7 @@ struct Coordinate {
     }
 
     void addColor(char color) {
-        this->color.push_back(color);
+        this->color = color;
         if (color == 'B') {
             bNum++;
         }
@@ -37,7 +38,7 @@ struct Coordinate {
 
     int getColor() {
         //no color;
-        if (color.size() == 0) {
+        if (color == ' ') {
             return -1;
         }
         //Gray
@@ -45,11 +46,11 @@ struct Coordinate {
             return 1;
         }
         //White
-        else if(color[color.size() - 1] == 'W') {
+        else if(color == 'W') {
             return 2;
         }
         //Black
-        else if(color[color.size() - 1] == 'B'){
+        else if(color == 'B'){
             return 3;
         }
     }
@@ -59,10 +60,10 @@ int main() {
     cin >> n;
 
     //initialize section
-    vector<Coordinate> vertical;
-    for (int i = 0; i < OFFSET * 2; i++) {
-        vertical.push_back(Coordinate());
-    }
+    Coordinate* vertical = new Coordinate[2 *  OFFSET];
+    // for (int i = 0; i < OFFSET * 2; i++) {
+    //     vertical.push_back(Coordinate());
+    // }
 
     int preLocation = OFFSET;
 
