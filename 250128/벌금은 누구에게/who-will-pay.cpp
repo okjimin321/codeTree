@@ -8,27 +8,20 @@ int student[10000]{};
 int main() {
     cin >> N >> M >> K;
 
+    bool c = false;
     for (int i = 0; i < M; i++) {
         int x;
         cin >> x;
 
         student[x]++;
-    }
-
-
-    bool c = false;
-    int i = 1;
-    for(; i <= N; i++){
-        if(student[i] >= K){
+        if(student[x] >= K){
+            cout << x << '\n';
             c = true;
             break;
         }
     }
 
-    if(c){
-        cout << i << '\n';
-    }
-    else{
+    if(!c){
         cout << -1 << '\n';
     }
 
