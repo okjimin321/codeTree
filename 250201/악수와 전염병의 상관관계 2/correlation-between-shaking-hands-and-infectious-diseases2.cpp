@@ -35,8 +35,8 @@ int main() {
     }
 
 
-    int* infect_count = new int[N + 1]{};
-    bool* developers = new bool[N + 1]{};
+    int infect_count [N + 1]{};
+    bool developers[N + 1]{};
     developers[P] = true;
 
     for(int i = 1; i <= T; i++){
@@ -63,7 +63,6 @@ int main() {
         cout << developers[i];
     }
 
-    delete[] infect_count;
-    delete[] developers;
+
     return 0;
 }
