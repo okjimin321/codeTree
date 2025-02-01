@@ -3,8 +3,8 @@
 using namespace std;
 
 int n;
-char dir[100];
-int dist[100];
+int dx[4] = {0, 1 , 0, -1};
+int dy[4] = {1, 0, -1, 0};
 
 int main() {
     cin >> n;
@@ -16,19 +16,23 @@ int main() {
         char dir;
         int dist;
         cin >> dir >> dist;
-        
+
+        int tmp;
         if(dir == 'N'){
-            y += dist;
+            tmp = 0;
         }
         else if(dir == 'S'){
-            y -= dist;
+            tmp = 2;
         }
         else if(dir == 'E'){
-            x += dist;
+            tmp = 1;
         }
         else{
-            x -= dist;
+            tmp = 3;
         }
+
+        x += dx[tmp] * dist;
+        y += dy[tmp] * dist;
     }
 
 
