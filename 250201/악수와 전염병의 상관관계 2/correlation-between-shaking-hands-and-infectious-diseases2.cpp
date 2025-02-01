@@ -46,19 +46,19 @@ int main() {
 
         if(developers[x] == true){
             infect_count[x]++;
+             if(infect_count[x] <= K){
+            developers[y] = true;
+         }
+         
         }
 
         if(developers[y] == true){
-            infect_count[y]++;
-        }
-
-        if(developers[x] && infect_count[x] <= K){
-            developers[y] = true;
-        }
-
-        if(developers[y] && infect_count[y] <= K){
-            developers[x] = true;
-        }
+             infect_count[y]++;
+             if(infect_count[y] <= K){
+                 developers[x] = true;
+                }
+         
+        }       
     }
 
     for(int i = 1; i <= N; i++){
