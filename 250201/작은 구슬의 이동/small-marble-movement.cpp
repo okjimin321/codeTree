@@ -11,6 +11,7 @@ int dy[4] = {1,0,0,-1};
 bool inGrid(int x, int y){
     return (0 <= x && x < n) && (0 <= y && y < n);
 }
+
 int main() {
     cin >> n >> t;
     cin >> r >> c >> d;
@@ -28,29 +29,23 @@ int main() {
     else{
         dir = 1;
     }
-
-    int nx = dx[dir];
-    int ny = dy[dir];
-    //cout << nx << " " << ny <<endl;
     r--; c--;
+
     while(t--){
         //move
-        r = r + nx;
-        c = c + ny;
-       // cout << r << " " << c << endl;
-        
+
+        r += dx[dir];
+        c += dy[dir];
+
         if(inGrid(r,c)){
             continue;
         }
-
-        //change direction;
-        dir = 3 - dir;
-        nx = dx[dir];
-        ny = dy[dir];
-        
-        r += nx;
-        c += ny;
-        //t--;
+        else{
+            dir = 3 - dir;
+            r += dx[dir];
+            c += dy[dir];
+        }
+ 
     }
 
     cout << r + 1  << " " << c + 1 << endl;
