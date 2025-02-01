@@ -37,16 +37,6 @@ public:
     }
 };
 
-class TimeOrder{
-public:
-    int idx;
-    int val;
-
-    TimeOrder(int i, int v){
-        idx = i;
-        val = v;
-    }
-};
 
 int main() {
     cin >> N >> K >> P >> T;
@@ -76,10 +66,8 @@ int main() {
                 s_idx = j;
             }
         }
-        //cout << t[0] << " " << t[1] << " " <<  t[2] << "     tqrjksjkld\n";
         t[s_idx] = 999;
         cases[i] = s_idx;
-        //cout << s_idx << '\n';
     }
 
     //check who is infected
