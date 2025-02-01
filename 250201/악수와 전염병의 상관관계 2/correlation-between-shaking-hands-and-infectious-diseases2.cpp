@@ -45,17 +45,19 @@ int main() {
         q.pop();
 
         if(developers[x] == true){
-            if(infect_count[x] < K){
-                developers[y] = true;
-            }
             infect_count[x]++;
         }
 
         if(developers[y] == true){
-            if(infect_count[y] < K){
-                developers[x] = true;
-            }
             infect_count[y]++;
+        }
+
+        if(developers[x] && infect_count[x] <= K){
+            developers[y] = true;
+        }
+
+        if(developers[y] && infect_count[y] <= K){
+            developers[x] = true;
         }
     }
 
