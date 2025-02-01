@@ -3,10 +3,6 @@
 using namespace std;
 
 int n, m;
-int t[50000];
-char d[50000];
-int t_b[50000];
-char d_b[50000];
 
 int main() {
     cin >> n >> m;
