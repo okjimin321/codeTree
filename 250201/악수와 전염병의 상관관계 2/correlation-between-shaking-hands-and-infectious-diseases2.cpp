@@ -39,16 +39,18 @@ int main() {
     bool* developers = new bool[N + 1]{};
     developers[P] = true;
 
-    for(int i = 0; i < T; i++){
+    for(int i = 1; i <= T; i++){
         int x = q.top().x_idx;
         int y = q.top().y_idx;
         q.pop();
+
         if(developers[x] == true){
             if(infect_count[x] < K){
                 developers[y] = true;
             }
             infect_count[x]++;
         }
+
         if(developers[y] == true){
             if(infect_count[y] < K){
                 developers[x] = true;
@@ -61,5 +63,7 @@ int main() {
         cout << developers[i];
     }
 
+    delete[] infect_count;
+    delete[] developers;
     return 0;
 }
