@@ -31,11 +31,13 @@ int main() {
                     cnt++;
                 }
             }
+
+            if(cnt >= 3){
+                ans++;
+            }
         }
 
-        if(cnt >= 3){
-            ans++;
-        }
+       
 
     }
 
