@@ -45,15 +45,14 @@ int main() {
     }
 
     //additional setiing for last end array
-    int time_max = max(time_a, time_b);
-    if(time_max == time_a){
-        for(int i = time_b; i < time_max; i++){
-            location_b[i] = location_b[i - 1];
+    if(time_a < time_b){
+        for(int i = time_a; i < time_b; i++){
+            location_a[i] = location_a[i - 1];
         }
     }
-    else if(time_max == time_b){
-        for(int i = time_a ; i < time_max; i++){
-            location_a[i] = location_a[i - 1];
+    else if(time_b < time_a){
+        for(int i = time_b; i < time_a; i++){
+            location_b[i] = location_b[i - 1];
         }
     }
 
@@ -69,9 +68,6 @@ int main() {
         //increasing a, b
         cur_a++;
         cur_b++;
-
-        //base case
-
     }
 
     cout << ans << '\n';
