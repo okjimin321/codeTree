@@ -48,6 +48,7 @@ int main() {
         }
     }
 
+    //additional setiing for last end array
     int time_max = max(time_a, time_b);
     if(time_max == time_a){
         for(int i = time_b; i < time_max; i++){
@@ -63,28 +64,18 @@ int main() {
     int ans = 0;
     int cur_a = 1;
     int cur_b = 1;
-    while(true){
+    while(cur_a < time_a || cur_b < time_b){
         //checking whether they meet the condition
 
         if(location_a[cur_a] == location_b[cur_b] && location_a[cur_a - 1] != location_b[cur_b - 1]){
             ans++;
-    
         }
-        
-
-
         //increasing a, b
-        if(cur_a < time_a){
-            cur_a++;
-        }
-        if(cur_b < time_b){
-            cur_b++;
-        }
+        cur_a++;
+        cur_b++;
 
         //base case
-        if(cur_a == time_a  && cur_b == time_b ){
-            break;
-        }
+
     }
 
     cout << ans << '\n';
