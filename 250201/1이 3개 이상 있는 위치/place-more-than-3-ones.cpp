@@ -10,6 +10,7 @@ int dy[4] = {1, 0, -1, 0};
 bool inRange(int x, int y){
     return (0 <= x && x < n) && (0 <= y && y < n);
 }
+
 int main() {
     cin >> n;
 
@@ -21,9 +22,8 @@ int main() {
 
     int ans = 0;
     for(int i = 0; i < n; i++){
-        int cnt = 0;
-
         for(int j = 0; j < n; j++){
+            int cnt = 0;
             for(int k = 0; k < 4; k++){
                 int x = i + dx[k];
                 int y = j + dy[k];
