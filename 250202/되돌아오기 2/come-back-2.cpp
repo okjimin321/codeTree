@@ -22,17 +22,18 @@ int main() {
             dir = (dir + 1) % 4;
         }
         else if(cur == 'L'){
-            dir = (dir - 1) % 4;
+            dir = (dir - 1 + 4) % 4;
         }
         else{
             x += dx[dir];
             y += dy[dir];
-
             if(x == 0 && y == 0){
                 cout << i + 1 << endl;
                 return 0;
             }
         }
+
+      
     }
 
     cout << -1 << endl;
