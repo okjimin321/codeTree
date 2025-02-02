@@ -72,7 +72,7 @@ int main() {
                 dir = 0;
             }
         }
-
+        
         else{//mirrot == '\'
             if(dir == 0){
                 dir = 1;
