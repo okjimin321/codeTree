@@ -56,36 +56,11 @@ int main() {
 
         if(mirror == '/'){
             //Right
-            if(dir == 0){
-                dir = 3;
-            }
-            //Left
-            else if(dir == 1){
-                dir = 2;
-            }
-            //Down
-            else if(dir == 2){
-                dir = 1;
-            }
-            //up
-            else{//dir == 3
-                dir = 0;
-            }
+            dir = 3 - dir;
         }
-        
+
         else{//mirrot == '\'
-            if(dir == 0){
-                dir = 1;
-            }
-            else if(dir == 1){
-                dir = 0;
-            }
-            else if(dir == 2){
-                dir = 3;
-            }
-            else{//dir == 3
-                dir = 2;
-            }
+            dir = dir ^ 1;
         }
 
         x = (x + dx[dir]);
