@@ -25,6 +25,7 @@ int main() {
     int x = 0;
     int y = 0;
     int time = 0;
+    int ans = -1;
 
     for(int i = 0; i < N; i++){
         while(dist[i]--){
@@ -33,13 +34,13 @@ int main() {
             //cout << x << " " << y <<endl;
             time++;
             if(x == 0 && y == 0){
-                cout << time << endl;
-                return 0;
+                ans = time;
+                break;
             }
         }
     }
 
-    cout << -1 << endl;
+    cout << ans << endl;
 
     return 0;
 }
