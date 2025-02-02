@@ -28,7 +28,6 @@ int main() {
             int nx = x + dx[i] + 100;
             int ny = y + dy[i] + 100;
 
-            cout << nx << " " << ny << '\n';
             if(inRange(nx, ny) && arr[nx][ny] == true){
                 comfort_num++;
             }
