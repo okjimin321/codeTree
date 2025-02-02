@@ -21,12 +21,10 @@ int main() {
     for(int i = 0; i < n * m; i++){
 
         //checking
+        checker = 'A' + i % 26;
         arr[x][y] = checker;
         //cout << x << " " << y << " " << checker << endl;
-        checker = checker + 1;
-        if(checker > 'Z'){
-            checker = 'A';
-        }
+        
 
         int nx = x + dx[dir];
         int ny = y + dy[dir];
