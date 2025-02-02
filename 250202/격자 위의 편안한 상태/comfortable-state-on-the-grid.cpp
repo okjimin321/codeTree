@@ -5,7 +5,7 @@ using namespace std;
 int N, M;
 
 bool inRange(int x, int y){
-    return (0 <= x && x < 200) && (0 <= y && y < 200);
+    return (0 <= x && x < 2000) && (0 <= y && y < 2000);
 }
 
 int dx[4] = {-1, 0, 1, 0};
