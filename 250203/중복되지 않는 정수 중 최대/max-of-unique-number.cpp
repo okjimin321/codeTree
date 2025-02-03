@@ -1,52 +1,49 @@
 #include <iostream>
-#include<climits>
-
+#include<algorithm>
 using namespace std;
 
 int N;
-int nums[1000];
-bool isDuplicate(int x){
-    int count = 0;
-    for(int i = 0; i < N; i++){
-        if(x == nums[i]){
-            count++;
-        }
-    }
 
-    if(count > 1){
-        return true;
+struct  E{
+    int val;
+    int count;
+
+    E(int v){
+        val = v;
+        count = 1;
     }
-    return false;
-}
+    E(){
+        val = -1;
+        count = 0;
+    }
+};
 
 int main() {
     cin >> N;
+
+    E arr[1000];
     for (int i = 0; i < N; i++) {
-        cin >> nums[i];
+        int x;
+        cin >> x;
+
+        if(arr[x].count != 0){
+            arr[x].count++;
+        }
+        else{
+            arr[x] = E(x);
+        }
     }
 
     // Write your code here!
-    int m = -1;
-    for(int i = 0; i < N; i++){
-        m = max(m, nums[i]);
-    }
-
-    int c = 0;
-    while(isDuplicate(m)){
-        if(c > N){
-            break;
-        }
-        int x = m;
-        for(int i = 0; i < N; i++){
-            if(nums[i] == x){
-                nums[i] = -1;
+    int max = -1;
+    for(int i = 0; i < 1000; i++){
+        if(arr[i].count == 1){
+            if(arr[i].val > max);{
+                max = arr[i].val;
             }
-            m = INT_MIN;
-            m = max(m, nums[i]);
         }
-        c++;
     }
 
-    cout << m << endl;
+    cout << max;
     return 0;
 }
