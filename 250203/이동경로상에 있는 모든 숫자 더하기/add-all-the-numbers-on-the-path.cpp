@@ -11,6 +11,7 @@ int dy[4] = {0, -1, 0, 1};
 bool inRange(int x, int y){
     return (0 <= x && x < N) && (0 <= y && y < N);
 }
+
 int main() {
     cin >> N >> T;
     cin >> str;
@@ -24,18 +25,19 @@ int main() {
     int x, y;
     x = y = N / 2;
     int dir = 0;
-    int sum = 0;
+    int sum = board[x][y];
 
-    for(int i = 0; i < str.size(); i++){
+    for(int i = 0; i < T; i++){
 
         char c_dir = str[i];
         if(c_dir == 'L'){
             dir = (dir + 1) % 4;
         }
-        else if(dir == 'R'){
+        else if(c_dir == 'R'){
             dir = (dir + 3) % 4;
         }
-        else{
+        else{ 
+            
             int nx = x + dx[dir];
             int ny = y + dy[dir];
 
@@ -43,10 +45,9 @@ int main() {
                 continue;
             }
             
-            sum += board[x][y];
             x += dx[dir];
             y += dy[dir];
-            
+            sum += board[x][y];
             
         }
     }
