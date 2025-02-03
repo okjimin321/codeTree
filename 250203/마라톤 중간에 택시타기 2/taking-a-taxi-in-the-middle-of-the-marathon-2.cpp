@@ -23,9 +23,8 @@ int main() {
             if (j == i) {
                 continue;
             }
-
             else if (j == i - 1) {
-                sum += abs(x[i + 1] - x[i - 1]) + abs(y[i + 1] - y[i - 1]);
+                sum += abs(x[j + 2] - x[j]) + abs(y[j + 2] - y[j]);
             }
             else {
                 sum += abs(x[j + 1] - x[j]) + abs(y[j + 1] - y[j]);
