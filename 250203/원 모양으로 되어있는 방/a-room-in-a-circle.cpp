@@ -1,6 +1,6 @@
 #include <iostream>
 #include<climits>
-
+#include<cmath>
 using namespace std;
 
 int n;
@@ -19,12 +19,14 @@ int main() {
         int distance_sum = 0;
         int start = i;
         for (int j = 0; j < n; j++) {
-            if (j < start) {
-                distance_sum += a[j] * (n - start + j);
-            }
-            else{
-                distance_sum += a[j] * (j - start);
-            }
+            int distance = (n + j - i) % n;
+            distance_sum += a[j] * distance;
+            // if (j < start) {
+            //     distance_sum += a[j] * (n - start + j);
+            // }
+            // else{
+            //     distance_sum += a[j] * (j - start);
+            // }
         }
 
         ans = min(ans, distance_sum);
