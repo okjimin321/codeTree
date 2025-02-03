@@ -43,12 +43,7 @@ int main() {
        if(turn == 4){
             count++;
             turn = 0;
-        }
-        //check is end
-        if(x >= n || y >= n){
-            break;
-        }
-
+       }
     }
 
     for(int i = 0; i < n; i++){
