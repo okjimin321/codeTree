@@ -22,8 +22,12 @@ int main() {
                 for (int k = i + 1; k < R; k++) {
                     for (int l = j + 1; l < C; l++) {
                         if (k < R - 1 && l < C - 1) {
-                            if(grid[i][j] != grid[k][l])
-                                ans++;
+                            if (grid[i][j] != grid[k][l]) {
+                                if(grid[k][l] != grid[R - 1][C - 1]){
+                                    ans++;
+                                    //cout << "0,0  " << i << "," << j << " " << k << "," << l << endl;
+                                }
+                            }
                         }
                     }
                 }
