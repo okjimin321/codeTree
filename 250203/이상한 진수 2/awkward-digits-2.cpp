@@ -19,11 +19,11 @@ int main() {
         }
 
         //add sum
-        int sum = 0;    int mul = 1;
+        int sum = 0;  
         for (int j = a.size() - 1; j >= 0; j--) {
-            sum = sum + (a[j] - '0') * mul;
-            mul *= 2;
+            sum = sum * 2 + a[i] - '0';
         }
+        
         ans = max(ans, sum);
         
         //return to origin
