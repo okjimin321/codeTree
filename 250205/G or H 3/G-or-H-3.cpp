@@ -17,7 +17,7 @@ int main() {
     }
 
     int max_sum = INT_MIN;
-    for(int i = 1; i <= 10000 - K + 1 ; i++){
+    for(int i = 1; i <= 10000 - K ; i++){
         int sum = 0;
         for(int j = i; j <= i + K; j++){
             if(arr[j] == 'G'){
