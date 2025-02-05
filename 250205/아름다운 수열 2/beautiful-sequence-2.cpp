@@ -9,12 +9,13 @@ bool isContain(int s){
     for(int i = s; i < s + M; i++){
         for(int j = 0; j < M; j++){
             if(A[i] == B[j]){
+                //cout << "Same: " << i << "," << j << endl;
                 count++;
             }
         }
     }
 
-    if(count == M){
+    if(count >= M){
         return true;
     }
     return false;
@@ -33,6 +34,7 @@ int main() {
     for(int i = 0; i < N - M + 1; i++){
         if(isContain(i)){
             ans++;
+            //cout << A[i] << " " << A[i + 1] << endl;
         }
     }
 
