@@ -21,7 +21,7 @@ int main() {
                 sum += arr[k];
             }
             for(int k = i; k <= j; k++){
-                if((double)arr[k] == sum / (j - i + 1)){
+                if(arr[k] == sum / (j - i + 1)){
                     ans++;
                     break;
                     //cout << "ds: " << i + 1 << "," << j + 1 << endl;
