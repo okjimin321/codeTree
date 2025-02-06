@@ -12,6 +12,7 @@ bool isContain(int s){
             if(checker[j] == 0 && A[i] == B[j]){
                 checker[j] = 1;
                 count++;
+                break;
             }
         }
         delete[] checker;
