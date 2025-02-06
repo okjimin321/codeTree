@@ -6,8 +6,10 @@ int N, M;
 int A[100], B[100];
 bool isContain(int s){
     int count = 0;
+    bool* checker = new bool[M]{};
     for(int i = s; i < s + M; i++){
-        bool* checker = new bool[M]{};
+        //bool* checker = new bool[M]{};
+
         for(int j = 0; j < M; j++){
             if(checker[j] == 0 && A[i] == B[j]){
                 checker[j] = 1;
@@ -15,7 +17,7 @@ bool isContain(int s){
                 break;
             }
         }
-        delete[] checker;
+        //delete[] checker;
     }
 
     if(count == M)
@@ -35,6 +37,7 @@ int main() {
     int ans = 0;
     for(int i = 0; i < N - M + 1; i++){
         if(isContain(i)){
+            //cout << i << " " << i + 1 << endl;
             ans++;
         }
     }
