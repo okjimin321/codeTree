@@ -5,7 +5,7 @@
 using namespace std;
 
 int N, K;
-int candy[MAX_LOC + 1]{};
+int candy[5 * MAX_LOC + 1]{};
 
 int main() {
     cin >> N >> K;
@@ -15,13 +15,13 @@ int main() {
         int loc;
         cin >> c >> loc;
 
-        candy[loc] += c;
+        candy[2 * MAX_LOC + 1 + loc] += c;
     }
 
     // Write your code here!
     int max_sum = INT_MIN;
 
-    for(int i = K; i <= MAX_LOC - K; i++){
+    for(int i = 200 + K; i <= 5 * MAX_LOC - K; i++){
         int sum = 0;
         for(int j = i - K; j <= i + K; j++){
             sum += candy[j];
