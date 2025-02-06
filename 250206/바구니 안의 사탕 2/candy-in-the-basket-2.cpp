@@ -20,7 +20,7 @@ int main() {
 
     // Write your code here!
     int  max_sum = INT_MIN;
-    for(int i = K; i <= MAX_LOC - K; i++){
+    for(int i = 0; i <= MAX_LOC; i++){
         int sum = 0;
         for(int j = i - K; j <= i + K; j++){
             if(0 <= j && j <= MAX_LOC)
