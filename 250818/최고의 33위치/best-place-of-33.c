@@ -15,9 +15,8 @@ int main() {
 
     
     int max_coins = 0;
-    n = n > 3 ? n - 3: n;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int i = 0; i <= n - 3; i++) {
+        for (int j = 0; j <= n - 3; j++) {
             int coins = count_coins(i,j);
             if(max_coins <= coins)
                 max_coins = coins;
